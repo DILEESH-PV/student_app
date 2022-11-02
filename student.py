@@ -1,3 +1,4 @@
+from unittest import result
 import mysql.connector
 
 mydb=mysql.connector.connect(host='localhost',user='root',password='',database='studentdb')
@@ -25,6 +26,11 @@ while True:
         mydb.commit()
         print('inserted succes')
     elif(ch==2):
+        sql='SELECT * FROM `students`'
+        mycursor.execute(sql)
+        result=mycursor.fetchall()
+        for i in result:
+            print(i)
         print("selected view all student")
     elif(ch==3):
         print("selected search student")
