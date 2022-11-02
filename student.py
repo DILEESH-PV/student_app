@@ -34,6 +34,11 @@ while True:
         print("selected view all student")
     elif(ch==3):
         print("selected search student")
+        admo=input("Enter the admission number for searching a student")
+        sql='SELECT * FROM `students` WHERE `ADMno`='+admo
+        mycursor.execute(sql)
+        result=mycursor.fetchall()
+        print(result)
     elif(ch==4):
         print("selected update the student")
     elif(ch==5):
