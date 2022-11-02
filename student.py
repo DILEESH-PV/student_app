@@ -40,7 +40,14 @@ while True:
         result=mycursor.fetchall()
         print(result)
     elif(ch==4):
-        print("selected update the student")
+        admo=input("Enter the admission number")
+        name=input("Enter the name to be updated")
+        rno=input("Enter rollnumber to be updated")
+        clg=input("Enter the college name to be updated")
+        sql="UPDATE `students` SET `NAME`='"+name+"',`Rno`='"+rno+"',`COLLEGE`='"+clg+"' WHERE `ADMno`="+admo
+        mycursor.execute(sql)
+        mydb.commit()
+        print("updated successfully")
     elif(ch==5):
         admo=input("Enter the admission number for delete a student")
         sql='DELETE FROM `students` WHERE `ADMno`='+admo
