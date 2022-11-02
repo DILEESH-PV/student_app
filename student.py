@@ -85,7 +85,17 @@ while True:
         for i in result:
             print(i)
     elif(ch==8):
-        print("n")
+        subname=input("enter the subject name")
+        if(subname=='physics'):
+            sql="SELECT AVG(`physicsmark`) FROM `marks`"
+        elif(subname=='chemistry'):
+            sql="SELECT AVG(`chemistrymark`) FROM `marks`"
+        elif(subname=='maths'):
+            sql="SELECT AVG(`mathsmark`) FROM `marks`"
+        mycursor.execute(sql)
+        result=mycursor.fetchall()
+        print(result)
+            
     elif(ch==9):
         admo=input("Enter the admission number student")
         sql="SELECT `ID`FROM `students` WHERE `ADMno`="+admo
